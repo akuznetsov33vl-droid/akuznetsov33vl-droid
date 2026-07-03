@@ -21,7 +21,8 @@
 Проектирую и запускаю **AI-системы под бизнес-задачи**: Telegram-боты с RAG, SaaS-платформы на LLM, генераторы документов, лидогенерационные системы B2B. Работаю в паре «архитектор + Claude Code» через свою методологию **Spec-First Pipeline**.
 
 **Главное:**
-- 🪄 **14+ проектов** в портфолио (4 в Calltouch, 8 коммерческих сайтов, генератор ВКР с 3 клиентами)
+- 🪄 **20+ проектов** в портфолио (4 в Calltouch, «Ловец трекеров», ИИ-анализ звонков, 8+ коммерческих сайтов, генератор ВКР с 3 клиентами)
+- 🎙️ **Speech AI в проде** — транскрибация, диаризация и LLM-скоринг реальных звонков + голосовой перезвон
 - 📚 **75+ артефактов** методологии: промпты, шаблоны, чеклисты, гайды
 - ⚖️ **Юридически чистый контур РФ** — 152-ФЗ, 38-ФЗ, 54-ФЗ, ГК ч.4
 - ⚡ **3–7 дней** до MVP Telegram-бота · **2–4 недели** до SaaS
@@ -38,6 +39,8 @@
 ![pgvector](https://img.shields.io/badge/pgvector-336791?style=flat-square&logo=postgresql&logoColor=white)
 ![MCP](https://img.shields.io/badge/MCP-1a472a?style=flat-square&logoColor=white)
 ![Prompt_Engineering](https://img.shields.io/badge/Prompt_Engineering-740001?style=flat-square&logoColor=white)
+![SpeechKit](https://img.shields.io/badge/Yandex_SpeechKit-FFCC00?style=flat-square&logo=yandex&logoColor=black)
+![Whisper](https://img.shields.io/badge/faster--whisper-412991?style=flat-square&logoColor=white)
 
 ### Frontend
 ![Next.js](https://img.shields.io/badge/Next.js_16-000000?style=flat-square&logo=next.js&logoColor=white)
@@ -90,6 +93,51 @@
 > 💰 **Прогноз:** экономия 1,4–2 млн ₽/мес ФОТ
 
 **Стек:** Next.js + Supabase + Anthropic + Telegram Bot API
+
+---
+
+### 🟢 Ловец трекеров · Детектор коллтрекинга и виджетов `live` · 🌐 [lovec.lumenstudio.su](http://lovec.lumenstudio.su)
+**Экосистема из 3 инструментов, которая по сайту определяет установленные системы аналитики и виджеты — и превращает это в тёплые B2B-лиды.**
+
+- 🧩 **Chrome MV3-расширение v1.0.7** — 4 вкладки, детект трекеров прямо на странице
+- 🔬 **Веб-парсер глубокого скана на Yandex Cloud** — разбор одного сайта по кнопке
+- 🏭 **Серверная версия 2.0** — пакетный парсинг конкурентов (job-модель, авто-скейл), прогон-тест на **960 сайтах**
+
+> 🎯 Детектим **18+ трекеров** (Calltouch, Roistat, CoMagic, Mango…) + **разбивку виджетов Calltouch по типам** (чат / обратный звонок) из `callback_load.php`
+
+**Стек:** Chrome Manifest V3 · Python · Playwright + Chromium · Yandex Cloud VM · авто-скейл
+
+---
+
+### 🟢 ИИ-анализ звонков · Speech AI `пилот на реальных звонках · NDA`
+**Транскрибация, диаризация и LLM-скоринг реальных разговоров.** Пилот на звонках медицинской сети (клиент под NDA). Стерео-запись = разделение оператор/клиент без отдельной модели диаризации.
+
+> 📊 Метрики: конверсия · пропущенные · причины «не записали» · чек-лист скрипта. Локальный ASR (faster-whisper) = **0 ₽**
+
+**Стек:** faster-whisper · Yandex SpeechKit v3 · YandexGPT · Beget
+
+---
+
+### 🟢 Голосовой ИИ-перезвон · Voice AI `демо`
+Голосовой бот на **Yandex SpeechKit v3** (голос marina, friendly): перезванивает лиду, квалифицирует его в диалоге и переводит на живого оператора. Авторизация через `yc IAM`.
+
+> ☎️ Первое касание голосом без оператора → на человека попадает уже «прогретый» лид
+
+**Стек:** SpeechKit v3 (TTS/STT) · YandexGPT · yc IAM
+
+---
+
+### 🟢 Lumen.studio · Сайт AI-студии `live`
+Витрина услуги внедрения ИИ-анализа звонков и голосовых ботов: воронка **аудит → пилот → ретейнер**. Next.js, выложен статикой в Object Storage.
+
+**Стек:** Next.js · Yandex Cloud · Object Storage
+
+---
+
+### 🟢 Цветы мира · Демо-магазин в стиле Roots `live демо` · 🌐 [открыть](https://cvetymira-demo.website.yandexcloud.net/prototype-3/index.html)
+Премиальный «галерейный» демо-магазин цветов в чёрно-белой эстетике roots-store.ru: острые углы, много воздуха, сдержанная типографика. Пресейл-прототип «анти-Flowwow».
+
+**Стек:** HTML/CSS/JS · Object Storage · UI/UX
 
 ---
 
@@ -235,7 +283,7 @@ MVP → PRODUCTION → ПЕРЕДАЧА КЛИЕНТУ
 
 - 🌟 **Магическое портфолио:** [akuznetsov33vl-droid.github.io/portfolio](https://akuznetsov33vl-droid.github.io/portfolio/)
 - 📧 **Email:** [enriquechandlerleoq@outlook.com](mailto:enriquechandlerleoq@outlook.com)
-- 💼 **Готов к проектам:** AI-системы, Telegram-боты, SaaS, лидогенерация B2B, CMS-конструкторы
+- 💼 **Готов к проектам:** AI-системы, ИИ-анализ и обзвон звонков (Speech AI), Telegram-боты, SaaS, лидогенерация B2B, CMS-конструкторы
 
 ---
 
