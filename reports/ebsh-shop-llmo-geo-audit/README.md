@@ -1,18 +1,10 @@
-# EBSH — AI LLMO / GEO Audit
+# EBSH — аудит для ChatGPT / AI-поиска
 
-Коммерческий внешний аудит сайта [ebsh.shop](https://ebsh.shop) на готовность к отображению товаров в ChatGPT Search, OpenAI Shopping, Perplexity, Google AI Overview, Gemini, Claude, Bing Copilot.
+Бесплатный внешний аудит [ebsh.shop](https://ebsh.shop) от команды [lumenstudio.su](https://lumenstudio.su).
 
 ## Файлы
 
-| Файл | Назначение |
-|---|---|
-| `EBSH-LLMO-GEO-Audit.md` | Полный отчёт (Markdown) — основной артефакт для передачи заказчику |
-| `EBSH-LLMO-GEO-Audit.html` | Версия для печати / PDF (открыть в браузере → Печать → PDF) |
+- `EBSH-LLMO-GEO-Audit.pdf` — отдать клиенту  
+- `EBSH-LLMO-GEO-Audit.md` / `.html` — исходник и печатная версия  
 
-## Ключевой вердикт
-
-**28 / 100.** Сайт почти не готов к AI-поиску/шопингу: главная в `noindex`, цены в Schema.org = 0, описания карточек = CTA на маркетплейсы.
-
-## Контекст клиента
-
-Основные продажи — WB / Ozon / ЯМ. Нужна оценка «стоит ли инвестировать» и смета доработок. Этот документ закрывает коммерческий аудит за **5 000 ₽**.
+**Оценка:** 28/100 · пакеты внедрения: **30 000 / 60 000 / 90 000 ₽**

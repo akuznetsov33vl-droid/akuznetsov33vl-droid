@@ -3,1166 +3,196 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>EBSH — AI LLMO / GEO Audit</title>
+<title>EBSH — аудит для ChatGPT · lumenstudio.su</title>
 <style>
-  :root {
-    --ink: #1a1a1a; --muted: #5a5a5a; --line: #e5e5e5; --accent: #2c4a3e; --bg: #faf9f7;
-  }
-  @page { size: A4; margin: 18mm 16mm; }
-  body { font-family: "Georgia", "Times New Roman", serif; color: var(--ink); background: var(--bg); line-height: 1.55; max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
-  h1,h2,h3,h4 { font-family: "Helvetica Neue", Arial, sans-serif; color: var(--accent); line-height: 1.25; }
-  h1 { font-size: 1.85rem; border-bottom: 3px solid var(--accent); padding-bottom: .4em; }
-  h2 { font-size: 1.35rem; margin-top: 2em; border-bottom: 1px solid var(--line); padding-bottom: .3em; }
-  h3 { font-size: 1.1rem; }
-  table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: .92rem; background: #fff; }
-  th, td { border: 1px solid var(--line); padding: .45em .6em; vertical-align: top; }
+  :root { --ink:#1a1a1a; --muted:#555; --line:#e6e6e6; --accent:#2c4a3e; --bg:#faf9f7; }
+  @page { size: A4; margin: 16mm; }
+  body { font-family: Georgia, "Times New Roman", serif; color: var(--ink); background: var(--bg); line-height: 1.55; max-width: 820px; margin: 0 auto; padding: 28px 20px 56px; font-size: 15px; }
+  h1,h2,h3 { font-family: "Helvetica Neue", Arial, sans-serif; color: var(--accent); line-height: 1.25; }
+  h1 { font-size: 1.6rem; border-bottom: 3px solid var(--accent); padding-bottom: .35em; }
+  h2 { font-size: 1.2rem; margin-top: 1.6em; border-bottom: 1px solid var(--line); padding-bottom: .25em; }
+  h3 { font-size: 1.05rem; }
+  table { border-collapse: collapse; width: 100%; margin: .9em 0; font-size: .92rem; background: #fff; }
+  th, td { border: 1px solid var(--line); padding: .4em .55em; vertical-align: top; }
   th { background: #eef3f0; text-align: left; font-family: "Helvetica Neue", Arial, sans-serif; }
-  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .85rem; }
-  pre { background: #fff; border: 1px solid var(--line); padding: 12px; overflow-x: auto; }
-  blockquote { border-left: 3px solid var(--accent); margin-left: 0; padding-left: 1em; color: var(--muted); }
-  hr { border: none; border-top: 1px solid var(--line); margin: 2em 0; }
-  .cover { background: #fff; border: 1px solid var(--line); padding: 24px; margin-bottom: 28px; }
-  .cover .meta { color: var(--muted); font-size: .95rem; }
-  @media print {
-    body { background: #fff; padding: 0; }
-    a { color: inherit; text-decoration: none; }
-    tr { page-break-inside: avoid; }
-    h2 { page-break-after: avoid; }
-  }
+  code { font-family: ui-monospace, Menlo, monospace; font-size: .85rem; }
+  a { color: var(--accent); }
+  .badge { background:#fff; border:1px solid var(--line); padding:12px 14px; margin-bottom:20px; font-family:"Helvetica Neue",Arial,sans-serif; font-size:.92rem; color:var(--muted); }
+  @media print { body { background:#fff; padding:0; } a { color:inherit; text-decoration:none; } tr { page-break-inside: avoid; } }
 </style>
 </head>
 <body>
-<div class="cover">
-  <div class="meta">Коммерческий документ · Внешний аудит · 15.07.2026 · Стоимость аудита: 5 000 ₽</div>
-</div>
-<h1 id="ai-llmo-geo-audit-ebshshop">AI LLMO / GEO Audit — ebsh.shop</h1>
-<p><strong>Коммерческий аудит готовности интернет-магазина к отображению товаров в AI-поисковых системах</strong></p>
+<div class="badge">Бесплатный аудит · <strong>lumenstudio.su</strong> · 15.07.2026 · пакеты внедрения: 30 000 / 60 000 / 90 000 ₽</div>
+<h1>Аудит сайта ebsh.shop для ChatGPT и AI-поиска</h1>
+<p><strong>Оценка:</strong> 28 из 100<br />
+<strong>Сайт:</strong> https://ebsh.shop · бренд EBSH, мужская одежда<br />
+<strong>Дата:</strong> 15 июля 2026<br />
+<strong>Аудит проведён бесплатно</strong> командой <a href="https://lumenstudio.su">lumenstudio.su</a></p>
+<hr />
+<h2>Коротко для руководителя</h2>
+<p>Сайт пока <strong>почти не видно</strong> поисковикам и нейросетям (ChatGPT, Perplexity, Google AI и др.). Дело не в «настройке под ChatGPT», а в трёх простых блокерах.</p>
+<h3>Что мешает больше всего</h3>
+<ol>
+<li><strong>Главная закрыта от индексации</strong> (<code>noindex</code>). Поисковики и боты AI как будто не должны её замечать.</li>
+<li><strong>Во всех 26 товарах в разметке цена = 0.</strong> Для товарной выдачи и Shopping это стоп-сигнал.</li>
+<li><strong>В карточках нет нормальных описаний</strong> — только кнопки «купить на Wildberries / Ozon». Нейросети не из чего цитировать товар: нет состава, размеров, материалов, бренда в данных.</li>
+</ol>
+<p>Вы уже верно сказали: нужно <strong>разрешить индексацию и настроить цены</strong>. Без этого дальше мало смысла.</p>
+<h3>Стоит ли вкладываться?</h3>
+<p>Основные продажи у вас через маркетплейсы — это нормально. Сайт сейчас скорее витрина бренда.</p>
+<table>
+<thead>
+<tr>
+<th>Если цель…</th>
+<th>Что делать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Продавать в основном на WB / Ozon / ЯМ</td>
+<td>Минимально починить сайт + править карточки на маркетплейсах</td>
+</tr>
+<tr>
+<td>Чтобы бренд и товары чаще попадали в ответы ChatGPT</td>
+<td>Нужен пакет с описаниями, разметкой и <code>llms.txt</code> на своём сайте</td>
+</tr>
+<tr>
+<td>Полноценный OpenAI Shopping (покупка из чата)</td>
+<td>Нужна покупка <strong>на сайте</strong> или товарный фид — сейчас checkout на маркетплейсах, это отдельное решение</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Что проверили и что нашли</h2>
+<h3>Техника и индексация</h3>
 <table>
 <thead>
 <tr>
 <th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Сайт</strong></td>
-<td>https://ebsh.shop</td>
-</tr>
-<tr>
-<td><strong>Бренд</strong></td>
-<td>EBSH (мужская одежда)</td>
-</tr>
-<tr>
-<td><strong>Платформа</strong></td>
-<td>Tilda (Store) + CDN DDoS-Guard</td>
-</tr>
-<tr>
-<td><strong>Дата аудита</strong></td>
-<td>15 июля 2026</td>
-</tr>
-<tr>
-<td><strong>Тип аудита</strong></td>
-<td>Внешний (без доступов в админку Tilda / Search Console / Merchant)</td>
-</tr>
-<tr>
-<td><strong>Цель клиента</strong></td>
-<td>Понимание возможности и стоимости оптимизации для ChatGPT / OpenAI Shopping и смежных AI-поисков; решение «инвестировать или нет»</td>
-</tr>
-<tr>
-<td><strong>Контекст бизнеса</strong></td>
-<td>Основные продажи — Wildberries, Ozon, Яндекс.Маркет; сайт — витрина + Telegram-бот</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="0-1">0. Резюме для руководителя (1 страница)</h2>
-<h3 id="_1">Вердикт</h3>
-<p><strong>Общая оценка готовности к AI-поиску и шопингу: 28 / 100</strong></p>
-<p>Сайт <strong>сейчас почти не готов</strong> к корректному отображению и рекомендации товаров в ChatGPT Search, OpenAI Shopping, Perplexity, Google AI Overview, Gemini, Claude и Bing Copilot.</p>
-<p>Причина не в «магии ChatGPT», а в базовых блокерах индексации и данных о товаре. Без их снятия вложения в контент и GEO дадут минимальный эффект.</p>
-<h3 id="_2">Три факта, которые меняют решение об инвестиции</h3>
-<ol>
-<li><strong>Главная страница закрыта от индексации:</strong> <code>&lt;meta name="robots" content="noindex,nofollow"&gt;</code>. Бренд и входная точка сайта для поисковиков и AI-краулеров фактически «невидимы».</li>
-<li><strong>Во всех 26 карточках в Schema.org цена = <code>0</code></strong>, при этом <code>availability = InStock</code>. Для OpenAI Shopping / товарных сниппетов это дисквалифицирующий сигнал.</li>
-<li><strong>Описания товаров для машин = «КУПИТЬ НА WILDBERRIES / OZON».</strong> Нет материала, цвета/размера в structured data, GTIN, Brand, отзывов. LLM не из чего цитировать карточку.</li>
-</ol>
-<p>Клиент уже верно назвал часть проблем: <em>«настроить цены, сделать разрешение индексации»</em>. Аудит подтверждает: это <strong>этап 0</strong>, не опция.</p>
-<h3 id="_3">Стоит ли вкладываться?</h3>
-<table>
-<thead>
-<tr>
-<th>Сценарий</th>
-<th>Рекомендация</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Цель — продажи <strong>только</strong> на WB/Ozon/ЯМ</td>
-<td>Минимальный пакет на сайте (индексация + цены + базовый schema + llms.txt), основной GEO — карточки маркетплейсов. Бюджет ниже.</td>
-</tr>
-<tr>
-<td>Цель — чтобы <strong>бренд EBSH и товары цитировались в ChatGPT</strong></td>
-<td>Нужен полноценный GEO-контур на своём домене: карточки с данными, структура каталога, E-E-A-T, AI-файлы. Без этого ChatGPT будет опираться на маркетплейсы / чужие источники.</td>
-</tr>
-<tr>
-<td>Цель — <strong>OpenAI Shopping</strong> (кнопка покупки / товарная выдача)</td>
-<td>Требуется модель «купить на сайте» или официальный merchant-feed партнёра. Сейчас checkout уведён на маркетплейсы и Telegram — <strong>Shopping на ebsh.shop маловероятен</strong> без смены commerce-модели.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Практичный вывод для заказчика:</strong> инвестировать имеет смысл <strong>поэтапно</strong>. Сначала дешёвые критические правки (8–16 ч) — они открывают индексацию. Затем данные товара и schema. Полноценный OpenAI Shopping — только если появится покупка на домене или feed.</p>
-<h3 id="_4">Оценка стоимости внедрения (предварительно, ₽)</h3>
-<table>
-<thead>
-<tr>
-<th>Блок</th>
-<th>Приоритет</th>
-<th>Часы</th>
-<th>Оценка ₽*</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A. Индексация + sitemap + www</td>
-<td>High</td>
-<td>4–8</td>
-<td>8 000–16 000</td>
-</tr>
-<tr>
-<td>B. Цены, SKU, описания, атрибуты в карточках</td>
-<td>High</td>
-<td>12–24</td>
-<td>24 000–48 000</td>
-</tr>
-<tr>
-<td>C. Schema.org JSON-LD (Product/Org/FAQ/…)</td>
-<td>High</td>
-<td>10–18</td>
-<td>20 000–36 000</td>
-</tr>
-<tr>
-<td>D. GEO: llms.txt, AI-контент, FAQ, бренд</td>
-<td>Medium</td>
-<td>12–20</td>
-<td>24 000–40 000</td>
-</tr>
-<tr>
-<td>E. Каталог/UX/скорость/CWV</td>
-<td>Medium</td>
-<td>10–20</td>
-<td>20 000–40 000</td>
-</tr>
-<tr>
-<td>F. Подготовка к Shopping / feed (если нужна покупка на сайте)</td>
-<td>Low→High по решению</td>
-<td>40–80+</td>
-<td>80 000–160 000+</td>
-</tr>
-</tbody>
-</table>
-<p>*Ориентир для рынка фриланс/агентство РФ; итоговая смета после доступов в Tilda.<br />
-<strong>Стоимость этого внешнего аудита (коммерческий документ): 5 000 ₽.</strong></p>
-<hr />
-<h2 id="1-seo">1. Техническое SEO</h2>
-<table>
-<thead>
-<tr>
-<th>Проверка</th>
 <th>Статус</th>
-<th>Комментарий</th>
+<th>Простыми словами</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>robots.txt</td>
-<td>⚠️ Частично</td>
-<td>Есть, указывает на 2 sitemap. Запрещены служебные <code>/tilda/*</code>, политики, <code>/notfound</code>. <strong>Нет явных правил для GPTBot / OAI-SearchBot / PerplexityBot</strong> (по умолчанию разрешено через <code>User-Agent: *</code>).</td>
+<td>Индексация главной</td>
+<td>Плохо</td>
+<td>Стоит запрет <code>noindex</code></td>
 </tr>
 <tr>
-<td>sitemap.xml</td>
-<td>⚠️</td>
-<td>5 URL: catalog, about, oplata, contacts, <strong>thanks</strong> (thank-you не должен индексироваться). <strong>Главной нет.</strong></td>
+<td>Три товара вне каталога</td>
+<td>Плохо</td>
+<td>Тоже <code>noindex</code></td>
 </tr>
 <tr>
-<td>sitemap-store.xml</td>
-<td>⚠️</td>
-<td>26 товаров. Часть URL вида <code>/tproduct/...</code> (вне <code>/catalog/</code>).</td>
+<td>Цены в Schema.org</td>
+<td>Плохо</td>
+<td>Везде <code>0</code>, при этом «в наличии»</td>
 </tr>
 <tr>
-<td>canonical</td>
-<td>✅</td>
-<td>На ключевых страницах задан.</td>
+<td>Описания товаров</td>
+<td>Плохо</td>
+<td>Пустые meta + текст только про маркетплейсы</td>
 </tr>
 <tr>
-<td>hreflang</td>
-<td>—</td>
-<td>Не применимо (сайт RU-only); отсутствует.</td>
+<td>Sitemap</td>
+<td>Средне</td>
+<td>Нет главной, лишняя страница «Спасибо»</td>
 </tr>
 <tr>
-<td>meta robots</td>
-<td>🔴</td>
-<td><strong>Главная: <code>noindex,nofollow</code>.</strong> 3 товара <code>/tproduct/...</code>: <code>noindex,nofollow</code>.</td>
+<td>www и без www</td>
+<td>Средне</td>
+<td>Оба открываются — дубли</td>
 </tr>
 <tr>
-<td>title</td>
-<td>⚠️</td>
-<td>Главная/разделы ок; товары — короткое имя без бренда («Футболка-поло зеленая»).</td>
+<td>robots.txt, favicon, canonical</td>
+<td>В целом ок</td>
+<td>База есть</td>
 </tr>
 <tr>
-<td>description</td>
-<td>🔴</td>
-<td>У <strong>всех 26</strong> товаров <code>meta description</code> пустой.</td>
-</tr>
-<tr>
-<td>favicon</td>
-<td>✅</td>
-<td>PNG/SVG через Tilda CDN.</td>
-</tr>
-<tr>
-<td>manifest / PWA</td>
-<td>❌</td>
-<td>Нет <code>manifest.json</code>, нет <code>apple-touch-icon</code> / <code>theme-color</code>.</td>
-</tr>
-<tr>
-<td>Open Graph</td>
-<td>⚠️</td>
-<td>Title/description/image на главной есть; у каталога og:image слабый/пустой; Twitter Cards отсутствуют.</td>
-</tr>
-<tr>
-<td>Twitter Cards</td>
-<td>❌</td>
-<td>Нет.</td>
-</tr>
-<tr>
-<td>Индексация</td>
-<td>🔴</td>
-<td>Главная закрыта; каталог SSR почти без товарных ссылок (загрузка через JS Tilda Store).</td>
-</tr>
-<tr>
-<td>Дубли</td>
-<td>🔴</td>
-<td><code>www.ebsh.shop</code> и <code>ebsh.shop</code> оба отдают <strong>200</strong> без 301. Товары <code>/tproduct/</code> и <code>/catalog/tproduct/</code>.</td>
-</tr>
-<tr>
-<td>Статус-коды</td>
-<td>⚠️</td>
-<td>Основные 200; http→https 301 ок; случайный URL → 404 ок; <code>/notfound</code> → 200.</td>
-</tr>
-<tr>
-<td>Redirect</td>
-<td>⚠️</td>
-<td>Нет канонизации www.</td>
-</tr>
-<tr>
-<td>Core Web Vitals</td>
-<td>⚠️</td>
-<td>PageSpeed API на момент аудита недоступен (quota). Оценка по прокси: TTFB 0.3–0.8 с; ~586 KB известных JS/CSS; 18 скриптов / 15 CSS на главной — риск LCP/INP.</td>
-</tr>
-<tr>
-<td>Скорость</td>
-<td>⚠️</td>
-<td>TTFB приемлемый; JS-каталог и тяжёлые tilda-assets ухудшают LCP на мобильных.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_5">Критично по техничке</h3>
-<pre><code class="language-html">&lt;!-- https://ebsh.shop/ — блокирует поисковики и большинство AI-краулеров --&gt;
-&lt;meta name=&quot;robots&quot; content=&quot;noindex,nofollow&quot; /&gt;
-</code></pre>
-<p>В Tilda: <strong>Настройки страницы → Страница не для индексации</strong> — снять галочку на главной и на 3 товарах «Ради мечты».</p>
-<hr />
-<h2 id="2-3-10">2. Структура интернет-магазина — оценка <strong>3 / 10</strong></h2>
-<table>
-<thead>
-<tr>
-<th>Элемент</th>
-<th>Оценка</th>
-<th>Факт</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Категории</td>
-<td>2/10</td>
-<td>Одна страница <code>/catalog</code> без URL-таксономии (футболки / свитера / джоггеры / чиносы).</td>
-</tr>
-<tr>
-<td>Подкатегории</td>
-<td>1/10</td>
-<td>Нет.</td>
-</tr>
-<tr>
-<td>Карточки товаров</td>
-<td>4/10</td>
-<td>26 SKU-страниц есть; контент и данные бедны.</td>
-</tr>
-<tr>
-<td>Хлебные крошки</td>
-<td>2/10</td>
-<td>Визуально слабые/отсутствуют как SEO-элемент; BreadcrumbList schema нет.</td>
-</tr>
-<tr>
-<td>Внутренняя перелинковка</td>
-<td>3/10</td>
-<td>Меню разделов есть; товарных ссылок в HTML каталога/главной для краулера почти нет (JS Store).</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Вывод:</strong> для LLM сайт выглядит как лендинг + «чёрный ящик» каталога, а не структурированный fashion e-commerce.</p>
-<hr />
-<h2 id="3-schemaorg">3. Schema.org</h2>
-<table>
-<thead>
-<tr>
-<th>Тип</th>
-<th>Статус</th>
-<th>Детали</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Product</td>
-<td>⚠️ Microdata</td>
-<td>Есть <code>schema.org/Product</code>, но без brand/description/color/size/material/gtin.</td>
-</tr>
-<tr>
-<td>Offer / AggregateOffer</td>
-<td>🔴</td>
-<td><code>price = 0</code> на всех офферах; currency RUB; InStock.</td>
-</tr>
-<tr>
-<td>AggregateRating</td>
-<td>❌</td>
-<td>Нет.</td>
-</tr>
-<tr>
-<td>Review</td>
-<td>❌</td>
-<td>Нет.</td>
-</tr>
-<tr>
-<td>Organization</td>
-<td>❌</td>
-<td>Нет (при этом реквизиты ИП есть на <code>/contacts</code>).</td>
-</tr>
-<tr>
-<td>WebSite + SearchAction</td>
-<td>❌</td>
-<td>Нет.</td>
-</tr>
-<tr>
-<td>BreadcrumbList</td>
-<td>❌</td>
-<td>Нет.</td>
-</tr>
-<tr>
-<td>FAQPage</td>
-<td>❌</td>
-<td>FAQ на главной есть в HTML, schema нет.</td>
-</tr>
-<tr>
-<td>ImageObject</td>
-<td>⚠️</td>
-<td>Частично / ImageGallery.</td>
-</tr>
-<tr>
-<td>Brand</td>
-<td>❌</td>
-<td>Нет в разметке.</td>
-</tr>
-<tr>
-<td>Person</td>
-<td>❌</td>
-<td>Владелец упомянут текстом, Person schema нет.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="tilda">Как внедрить (рекомендуемый путь на Tilda)</h3>
-<ol>
-<li><strong>HTML-блок</strong> в шаблон товара / через Tilda Zero / кастомный JS, генерирующий JSON-LD из полей Store.</li>
-<li>Либо вынести витрину на стек с полным контролем head (Shopify/Bitrix/самопис) — если GEO/Shopping станет KPI.</li>
-<li>Минимальный JSON-LD на товар:</li>
-</ol>
-<pre><code class="language-json">{
-  &quot;@context&quot;: &quot;https://schema.org&quot;,
-  &quot;@type&quot;: &quot;Product&quot;,
-  &quot;name&quot;: &quot;Футболка-поло зеленая&quot;,
-  &quot;image&quot;: [&quot;https://.../image.webp&quot;],
-  &quot;description&quot;: &quot;Мужская футболка-поло EBSH, цвет зелёный, состав …, размерная сетка …&quot;,
-  &quot;sku&quot;: &quot;EBSH-POLO-GRN&quot;,
-  &quot;gtin13&quot;: &quot;460XXXXXXXXXX&quot;,
-  &quot;brand&quot;: { &quot;@type&quot;: &quot;Brand&quot;, &quot;name&quot;: &quot;EBSH&quot; },
-  &quot;color&quot;: &quot;зелёный&quot;,
-  &quot;material&quot;: &quot;хлопок …&quot;,
-  &quot;size&quot;: &quot;M&quot;,
-  &quot;audience&quot;: {
-    &quot;@type&quot;: &quot;PeopleAudience&quot;,
-    &quot;suggestedGender&quot;: &quot;male&quot;
-  },
-  &quot;offers&quot;: {
-    &quot;@type&quot;: &quot;Offer&quot;,
-    &quot;url&quot;: &quot;https://ebsh.shop/catalog/tproduct/...&quot;,
-    &quot;priceCurrency&quot;: &quot;RUB&quot;,
-    &quot;price&quot;: &quot;2490&quot;,
-    &quot;availability&quot;: &quot;https://schema.org/InStock&quot;,
-    &quot;itemCondition&quot;: &quot;https://schema.org/NewCondition&quot;
-  }
-}
-</code></pre>
-<p>Для вариантов размеров — <code>ProductGroup</code> + <code>hasVariant</code> / <code>variesBy</code> (size, color).</p>
-<hr />
-<h2 id="4-ai-readiness-25-10">4. AI Readiness — оценка <strong>2.5 / 10</strong></h2>
-<table>
-<thead>
-<tr>
-<th>Критерий</th>
-<th>Оценка</th>
-<th>Комментарий</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Структура</td>
-<td>3</td>
-<td>Мало сущности «категория», слабый sitemap.</td>
-</tr>
-<tr>
-<td>Контент</td>
-<td>3</td>
-<td>Есть бренд-месседж и FAQ; мало экспертного текста.</td>
-</tr>
-<tr>
-<td>Карточки</td>
-<td>2</td>
-<td>Нет цитируемых фактов о товаре.</td>
-</tr>
-<tr>
-<td>Ответы AI</td>
-<td>2</td>
-<td>FAQ короткий; нет comparables / size guide / materials hub.</td>
-</tr>
-<tr>
-<td>Цитирование</td>
-<td>2</td>
-<td>LLM скорее процитирует WB/Ozon, чем ebsh.shop.</td>
-</tr>
-<tr>
-<td>Качество текста</td>
-<td>4</td>
-<td>Тон бренда есть; орфография/стиль («меркетплейсы») требуют правки.</td>
-</tr>
-<tr>
-<td>Уникальность</td>
-<td>3</td>
-<td>Описания карточек не уникальны (шаблон CTA).</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="5-geo-generative-engine-optimization">5. GEO (Generative Engine Optimization)</h2>
-<h3 id="chatgpt">Может ли ChatGPT понять…</h3>
-<table>
-<thead>
-<tr>
-<th>Атрибут</th>
-<th>Понятность</th>
-<th>Проблема</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Бренд EBSH</td>
-<td>Частично</td>
-<td>Главная noindex; путаница с украинским «ЕБШ» (ebsh.ua — спортхаб).</td>
-</tr>
-<tr>
-<td>Товары</td>
-<td>Слабо</td>
-<td>Названия есть; нет богатых описаний.</td>
-</tr>
-<tr>
-<td>Размеры</td>
-<td>Почти нет</td>
-<td>Варианты в Store, но не в SSR-тексте/schema <code>size</code>.</td>
-</tr>
-<tr>
-<td>Цвета</td>
-<td>Только из title</td>
-<td>Нет <code>color</code> property.</td>
-</tr>
-<tr>
-<td>Материалы</td>
+<td>llms.txt / ai.txt</td>
 <td>Нет</td>
-<td>Не указаны.</td>
-</tr>
-<tr>
-<td>Цены</td>
-<td>Нет / ложь</td>
-<td>Schema = 0; UI цены не отдаются стабильно в HTML.</td>
-</tr>
-<tr>
-<td>Наличие</td>
-<td>Формально InStock</td>
-<td>Без реальной синхронизации с остатками маркетплейсов.</td>
+<td>У крупных магазинов уже бывает</td>
 </tr>
 </tbody>
 </table>
-<h3 id="geo-">Ключевые GEO-проблемы</h3>
+<h3>Карточки товаров (26 шт.)</h3>
+<p>Нет или почти нет: нормальная цена в данных, бренд, материал, цвет/размер в разметке, GTIN, отзывы, alt у картинок, уникальный текст.</p>
+<p>Есть: название, картинка, заготовка под цены/размеры в Tilda Store (но данные не заполнены для машин).</p>
+<h3>Структура магазина — 3/10</h3>
+<p>Один общий каталог, без понятных категорий в URL. Товары подгружаются через JavaScript — поисковому боту сложнее «увидеть» список.</p>
+<h3>UX</h3>
+<p>Сайт удобен как лендинг. Своей полноценной корзины и оформления заказа нет — всё уходит на маркетплейсы и Telegram. Для Shopping на вашем домене это ограничение.</p>
+<hr />
+<h2>Конкуренты (чем отличаются крупные)</h2>
+<p>Смотрели ориентиры уровня Lamoda, Wildberries, Ozon, ЦУМ, Love Republic и др.</p>
+<p><strong>У них обычно есть:</strong> категории, богатые карточки, корректные цены в разметке, отзывы, покупка на сайте, иногда файл <code>llms.txt</code> для AI.</p>
+<p><strong>У вас пока нет:</strong> валидных цен в данных, сильных описаний, AI-файлов, своей оплаты на сайте.</p>
+<p><strong>Сильная сторона EBSH:</strong> живой бренд, реквизиты ИП на сайте, FAQ, продажи на маркетплейсах.</p>
+<hr />
+<h2>Ошибки</h2>
+<h3>Критичные — сделать в первую очередь</h3>
 <ol>
-<li>Закрытая главная + JS-каталог без HTML-ссылок.</li>
-<li>Нулевые цены в structured data.</li>
-<li>Checkout вне домена → модель «витрина», не «merchant».</li>
-<li>Нет <code>llms.txt</code> как навигации для LLM (у конкурентов уровня ЦУМ / Love Republic — уже есть).</li>
-<li>Риск бренд-коллизии EBSH / ЕБШ в обучающих и поисковых данных.</li>
+<li>Убрать <code>noindex</code> с главной  </li>
+<li>Открыть индексацию у закрытых товаров (или свести URL в один формат)  </li>
+<li>Проставить <strong>реальные цены</strong> (чтобы в разметке не было нуля)  </li>
+<li>Написать нормальные описания товаров  </li>
+<li>Починить sitemap и склеить www / без www  </li>
 </ol>
+<h3>Средние</h3>
+<p>Нет разметки Organization / FAQ; нет <code>llms.txt</code>; слабые alt и дубли SKU; мало категорий.</p>
+<h3>Мелкие</h3>
+<p>Title с брендом, страница размерной сетки, правки формулировок («меркетплейсы» → «маркетплейсы»).</p>
 <hr />
-<h2 id="6-e-e-a-t">6. Контент и E-E-A-T</h2>
-<table>
-<thead>
-<tr>
-<th>Аспект</th>
-<th>Оценка</th>
-<th>Факт</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Уникальность</td>
-<td>3/10</td>
-<td>Бренд-текст уникален; карточки — нет.</td>
-</tr>
-<tr>
-<td>Качество</td>
-<td>4/10</td>
-<td>Есть tone of voice; мало конкретики.</td>
-</tr>
-<tr>
-<td>Экспертность</td>
-<td>2/10</td>
-<td>Нет гайдов по посадке, уходу, подбору размера.</td>
-</tr>
-<tr>
-<td>E-E-A-T</td>
-<td>4/10</td>
-<td><strong>E:</strong> ИП Гусев М.М., ОГРНИП/ИНН/адрес на contacts — плюс. <strong>A:</strong> слабо (нет about в schema, мало доказательств). <strong>T:</strong> политика/cookie есть, но noindex режет trust signals.</td>
-</tr>
-<tr>
-<td>FAQ</td>
-<td>5/10</td>
-<td>4 вопроса с ответами — хорошо как задел; нет FAQPage.</td>
-</tr>
-<tr>
-<td>Статьи / блог</td>
-<td>0/10</td>
-<td>Нет.</td>
-</tr>
-<tr>
-<td>Брендовый контент</td>
-<td>4/10</td>
-<td>История «ради мечты» есть, но не связана с SKU.</td>
-</tr>
-</tbody>
-</table>
+<h2>Что делать дальше (простой план)</h2>
+<p><strong>Шаг 1.</strong> Открыть индексацию, цены, meta, sitemap.<br />
+<strong>Шаг 2.</strong> Описания товаров + Schema.org (Product, цена, бренд) + страница организации.<br />
+<strong>Шаг 3.</strong> <code>llms.txt</code>, FAQ, размерная сетка, категории — чтобы ChatGPT было что цитировать.<br />
+<strong>Шаг 4 (по желанию).</strong> Своя покупка на сайте или товарный фид — только если решите идти в Shopping.</p>
+<p>Параллельно имеет смысл поправить цены и атрибуты <strong>на Wildberries и Ozon</strong> — там сейчас основной объём продаж.</p>
 <hr />
-<h2 id="7">7. Карточки товара — чеклист</h2>
-<table>
-<thead>
-<tr>
-<th>Поле</th>
-<th>Есть?</th>
-<th>Комментарий</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SKU</td>
-<td>⚠️</td>
-<td>Частично; есть дубли SKU между поло разных цветов (1920517599 и вариации).</td>
-</tr>
-<tr>
-<td>GTIN</td>
-<td>❌</td>
-<td>Нет.</td>
-</tr>
-<tr>
-<td>Brand</td>
-<td>❌</td>
-<td>Нет в schema/полях.</td>
-</tr>
-<tr>
-<td>Material</td>
-<td>❌</td>
-<td>Нет.</td>
-</tr>
-<tr>
-<td>Size</td>
-<td>⚠️</td>
-<td>Варианты в Store, не в индексируемом контенте.</td>
-</tr>
-<tr>
-<td>Color</td>
-<td>⚠️</td>
-<td>Только в названии.</td>
-</tr>
-<tr>
-<td>Gender</td>
-<td>⚠️</td>
-<td>Косвенно «мужская» на сайте.</td>
-</tr>
-<tr>
-<td>Images</td>
-<td>⚠️</td>
-<td>≥1; <strong>alt пустые</strong>.</td>
-</tr>
-<tr>
-<td>Description</td>
-<td>🔴</td>
-<td>Фактически CTA на маркетплейсы.</td>
-</tr>
-<tr>
-<td>Reviews</td>
-<td>❌</td>
-<td>Нет.</td>
-</tr>
-<tr>
-<td>Availability</td>
-<td>⚠️</td>
-<td>InStock в schema; бизнес-смысл неясен без остатков.</td>
-</tr>
-<tr>
-<td>Price</td>
-<td>🔴</td>
-<td><strong>0 во всех Offer.</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Пример реального <code>itemprop</code> с карточки поло:</strong> <code>price content="0"</code>, description text ≈ «КУПИТЬ НА WILDBERRIES КУПИТЬ НА OZON».</p>
-<hr />
-<h2 id="8-ai">8. Индексация AI</h2>
-<table>
-<thead>
-<tr>
-<th>Сигнал</th>
-<th>Статус</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/llms.txt</code></td>
-<td>❌ 404</td>
-</tr>
-<tr>
-<td><code>/ai.txt</code></td>
-<td>❌ 404</td>
-</tr>
-<tr>
-<td>robots AI-bots</td>
-<td>⚠️ Не запрещены явно; отдельного Allow/политики нет</td>
-</tr>
-<tr>
-<td>X-Robots-Tag</td>
-<td>Не обнаружен в HTTP (проблема в meta HTML)</td>
-</tr>
-<tr>
-<td>CDN (DDoS-Guard)</td>
-<td>Возможны челленджи для части ботов; сейчас HTML отдаётся</td>
-</tr>
-<tr>
-<td>Блокировка <code>/tilda/product*</code></td>
-<td>✅ Нормально для API</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="9-psi">9. Скорость (прокси-оценка без PSI)</h2>
-<table>
-<thead>
-<tr>
-<th>Метрика</th>
-<th>Оценка</th>
-<th>Данные</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>TTFB</td>
-<td>5–6/10</td>
-<td>~0.31 с главная, ~0.7–0.8 с каталог/товар</td>
-</tr>
-<tr>
-<td>LCP</td>
-<td>4/10</td>
-<td>Риск из-за шрифта Unbounded + JS Store + hero</td>
-</tr>
-<tr>
-<td>CLS</td>
-<td>5/10</td>
-<td>Типичные сдвиги Tilda-каталога при lazyload</td>
-</tr>
-<tr>
-<td>INP</td>
-<td>4/10</td>
-<td>Много JS (catalog 237 KB и др.)</td>
-</tr>
-<tr>
-<td>Images</td>
-<td>4/10</td>
-<td>WebP местами есть; alt нет; оптимизация неоднородна</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="10-ux-4-10">10. UX — оценка <strong>4 / 10</strong></h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Desktop</th>
-<th>Mobile</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Витрина</td>
-<td>Ок как лендинг</td>
-<td>Адаптив Tilda, но каталог JS-heavy</td>
-</tr>
-<tr>
-<td>Корзина</td>
-<td>Фактически нет собственной checkout</td>
-<td>CTA → WB/Ozon/Telegram</td>
-</tr>
-<tr>
-<td>Поиск</td>
-<td>Не выделен как полноценный site search</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Фильтры</td>
-<td>Ограничены возможностями Tilda Store</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Оформление</td>
-<td>Вне сайта</td>
-<td>Соответствует модели маркетплейсов</td>
-</tr>
-</tbody>
-</table>
-<p>Для AI Shopping отсутствие on-site checkout — <strong>структурный стоппер</strong>, не баг вёрстки.</p>
-<hr />
-<h2 id="11-5">11. Конкуренты (минимум 5)</h2>
-<p>Сравнение по сигналам, критичным для AI/GEO (не по обороту).</p>
-<table>
-<thead>
-<tr>
-<th>Игрок</th>
-<th>Категорийная структура</th>
-<th>Богатые карточки</th>
-<th>JSON-LD / merchant signals</th>
-<th>llms.txt / AI-навигация</th>
-<th>On-site покупка</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Lamoda</strong></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅ (ожидаемо)</td>
-<td>— / CDN-блок</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><strong>Wildberries</strong></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅ feed-модель</td>
-<td>—</td>
-<td>✅ app/site</td>
-</tr>
-<tr>
-<td><strong>Ozon</strong></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>—</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><strong>ЦУМ (tsum.ru)</strong></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅ <strong>llms.txt</strong></td>
-<td>✅</td>
-</tr>
-<tr>
-<td><strong>Love Republic</strong></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅ <strong>llms.txt</strong></td>
-<td>✅</td>
-</tr>
-<tr>
-<td><strong>12 Storeez / UNIQLO / Zara</strong></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>разный уровень</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><strong>EBSH (ebsh.shop)</strong></td>
-<td>❌</td>
-<td>❌</td>
-<td>⚠️ битый Product</td>
-<td>❌</td>
-<td>❌ (MP + TG)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Чего нет у EBSH относительно крупных fashion-магазинов:</strong> URL-категории, полноценные PDP, валидные Offer, отзывы, GTIN/brand attributes, llms.txt, блог/гайды, единый checkout, merchant feed.</p>
-<p><strong>Что есть у EBSH и стоит сохранить:</strong> ясный бренд-месседж, реквизиты ИП, FAQ-задел, присутствие на MP (канал продаж).</p>
-<hr />
-<h2 id="12">12. Итог</h2>
-<h3 id="28-100">Общая оценка: <strong>28 / 100</strong></h3>
-<table>
-<thead>
-<tr>
-<th>Блок</th>
-<th>Балл</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Техническое SEO</td>
-<td>22</td>
-</tr>
-<tr>
-<td>Структура магазина</td>
-<td>30</td>
-</tr>
-<tr>
-<td>Schema.org</td>
-<td>18</td>
-</tr>
-<tr>
-<td>AI Readiness</td>
-<td>25</td>
-</tr>
-<tr>
-<td>GEO</td>
-<td>20</td>
-</tr>
-<tr>
-<td>Контент / E-E-A-T</td>
-<td>35</td>
-</tr>
-<tr>
-<td>Карточки товара</td>
-<td>18</td>
-</tr>
-<tr>
-<td>AI-индексация (llms/ai)</td>
-<td>10</td>
-</tr>
-<tr>
-<td>Скорость</td>
-<td>45</td>
-</tr>
-<tr>
-<td>UX / commerce</td>
-<td>40</td>
-</tr>
-<tr>
-<td><strong>Итого (взвешенно)</strong></td>
-<td><strong>≈ 28</strong></td>
-</tr>
-</tbody>
-</table>
-<h3 id="_6">Критические ошибки</h3>
-<ol>
-<li><code>noindex,nofollow</code> на главной.</li>
-<li><code>noindex</code> на 3 товарах <code>/tproduct/...</code>.</li>
-<li>Цены в Schema.org = 0 на всех товарах.</li>
-<li>Пустые meta description у всех PDP.</li>
-<li>Описания PDP = только ссылки на маркетплейсы.</li>
-<li>Дубль <code>www</code> / non-www без 301.</li>
-<li>Каталог без SSR-ссылок на товары (зависимость от JS).</li>
-<li>Нет Brand / GTIN / material / size / color в данных.</li>
-<li>Thank-you <code>/thanks</code> в sitemap; главной нет.</li>
-<li>Модель без on-site checkout при цели OpenAI Shopping.</li>
-</ol>
-<h3 id="_7">Средние ошибки</h3>
-<ol>
-<li>Нет JSON-LD Organization / WebSite / FAQPage / BreadcrumbList.</li>
-<li>Нет Twitter Cards; слабый OG на каталоге.</li>
-<li>Дублирующиеся SKU между цветами поло.</li>
-<li>Пустые alt у изображений товаров.</li>
-<li>Нет URL-категорий и хлебных крошек.</li>
-<li>Орфография/стиль («меркетплейсы»), тонкий E-E-A-T.</li>
-<li>FAQ без schema.</li>
-<li>Нет отдельной политики для AI-краулеров.</li>
-<li>TTFB каталога/товара &gt; 0.6–0.8 с.</li>
-<li>Коллизия бренда с ebsh.ua.</li>
-</ol>
-<h3 id="_8">Небольшие улучшения</h3>
-<ol>
-<li>Добавить бренд в title товаров: <code>… | EBSH</code>.</li>
-<li>manifest / apple-touch-icon.</li>
-<li>noindex для <code>/thanks</code> + убрать из sitemap.</li>
-<li>Расширить FAQ (размерная сетка таблицей).</li>
-<li>Единый шаблон alt: <code>{товар} {цвет} EBSH</code>.</li>
-<li>Внутренние ссылки «похожие товары».</li>
-<li>Страница «Размерная сетка» + «Уход за вещами».</li>
-<li>Исправить формулировки на «оплата и доставка».</li>
-</ol>
-<hr />
-<h2 id="roadmap">Roadmap</h2>
-<h3 id="1-12">Этап 1 — Разблокировка индексации (1–2 итерации)</h3>
-<ul>
-<li>Снять noindex с главной и <code>/tproduct/</code> товаров.</li>
-<li>Канонизировать www → apex (или наоборот).</li>
-<li>Пересобрать sitemap: +home, −thanks, единый URL-паттерн товаров.</li>
-<li>Проставить meta description и title с брендом.</li>
-<li>Зафиксировать цены в карточке Store (не 0) и проверить выдачу в microdata.</li>
-</ul>
-<p><strong>Сложность 2/5 · 4–8 ч · Эффект: критический (без этого GEO бессмысленен).</strong></p>
-<h3 id="2-schema">Этап 2 — Данные товара и Schema</h3>
-<ul>
-<li>Уникальные описания 150–400 слов: состав, посадка, цвет, уход, размерная сетка.</li>
-<li>Поля Brand, material, color, size; уникальные SKU; GTIN где возможно.</li>
-<li>JSON-LD Product + Offer (+ ProductGroup для размеров).</li>
-<li>Organization + WebSite на всех страницах; FAQPage на главной; BreadcrumbList.</li>
-<li>Alt-тексты, og:image на всех PDP.</li>
-</ul>
-<p><strong>Сложность 3–4/5 · 20–40 ч · Эффект: высокий для ChatGPT/AI Overview цитирований.</strong></p>
-<h3 id="3-geo-ai-">Этап 3 — GEO и AI-навигация</h3>
-<ul>
-<li>Опубликовать <code>/llms.txt</code> (карта сайта для LLM по образцу ЦУМ/Love Republic).</li>
-<li>Опционально <code>/ai.txt</code> с правилами цитирования и контактами.</li>
-<li>Контент-хабы: размерная сетка, «как выбрать», материалы, lookbook.</li>
-<li>Усилить бренд-дисambiguation: «EBSH — российский бренд мужской одежды (не спортхаб ЕБШ)».</li>
-<li>Перелинковка категория → товар в HTML (не только JS).</li>
-</ul>
-<p><strong>Сложность 3/5 · 12–24 ч · Эффект: средний–высокий на цитируемость.</strong></p>
-<h3 id="4-commerce-shopping">Этап 4 — Commerce / Shopping (опционально, стратегическое решение)</h3>
-<ul>
-<li>Если цель — OpenAI Shopping / Google Shopping: on-site checkout <strong>или</strong> merchant feed + актуальные остатки/цены.</li>
-<li>Иначе зафиксировать стратегию «сайт = бренд + контент, продажи = MP» и оптимизировать карточки WB/Ozon параллельно (цены, индексация карточек MP, атрибуты).</li>
-<li>Отзывы + AggregateRating на своём домене или трансляция рейтингов (с юридической корректностью).</li>
-<li>Ускорение: урезание лишних Tilda JS, оптимизация LCP hero.</li>
-</ul>
-<p><strong>Сложность 4–5/5 · 40–80+ ч · Эффект: высокий только при смене/дополнении commerce-модели.</strong></p>
-<hr />
-<h2 id="_9">Трудозатраты по пунктам ТЗ</h2>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Работа</th>
-<th>Сложность (1–5)</th>
-<th>Часы</th>
-<th>Ожидаемый эффект</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>ТехSEO: robots/meta/sitemap/www/canonical</td>
-<td>2</td>
-<td>4–8</td>
-<td>Разблокировка индексации</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Структура каталога (категории URL)</td>
-<td>4</td>
-<td>12–20</td>
-<td>Лучше crawl + GEO</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Schema.org полный пакет</td>
-<td>3</td>
-<td>10–18</td>
-<td>Rich results / AI parsing</td>
-</tr>
-<tr>
-<td>4</td>
-<td>AI Readiness контент (PDP+хабы)</td>
-<td>3</td>
-<td>16–30</td>
-<td>Цитирование LLM</td>
-</tr>
-<tr>
-<td>5</td>
-<td>GEO (llms.txt, бренд, FAQ)</td>
-<td>2</td>
-<td>6–12</td>
-<td>Discoverability для AI</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Контент E-E-A-T / статьи</td>
-<td>3</td>
-<td>10–25</td>
-<td>Trust + long-tail</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Данные карточек (SKU/GTIN/…)</td>
-<td>3</td>
-<td>10–20</td>
-<td>Shopping eligibility</td>
-</tr>
-<tr>
-<td>8</td>
-<td>AI indexing files + bot policy</td>
-<td>1</td>
-<td>2–4</td>
-<td>Низкая цена / ясный сигнал</td>
-</tr>
-<tr>
-<td>9</td>
-<td>Скорость / CWV</td>
-<td>3</td>
-<td>8–16</td>
-<td>UX + ranking proxy</td>
-</tr>
-<tr>
-<td>10</td>
-<td>UX поиск/фильтры/checkout</td>
-<td>4–5</td>
-<td>20–60</td>
-<td>Конверсия / Shopping</td>
-</tr>
-<tr>
-<td>11</td>
-<td>Параллель: атрибуты на WB/Ozon</td>
-<td>2</td>
-<td>6–15</td>
-<td>Продажи сейчас</td>
-</tr>
-<tr>
-<td>12</td>
-<td>Контрольный аудит после правок</td>
-<td>2</td>
-<td>3–5</td>
-<td>Измеримость</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="high-medium-low">Приоритизация задач (High / Medium / Low)</h2>
-<h3 id="high">High</h3>
-<ul>
-<li>[ ] Снять <code>noindex</code> с главной и 3 товаров  </li>
-<li>[ ] Проставить <strong>реальные цены</strong> в Tilda Store (и проверить schema ≠ 0)  </li>
-<li>[ ] Meta description + title с брендом на всех PDP  </li>
-<li>[ ] Исправить sitemap; 301 www  </li>
-<li>[ ] Уникальные описания + material/color/size  </li>
-<li>[ ] JSON-LD Product/Offer + Organization  </li>
-</ul>
-<h3 id="medium">Medium</h3>
-<ul>
-<li>[ ] <code>llms.txt</code>  </li>
-<li>[ ] FAQPage + расширение FAQ / размерная сетка  </li>
-<li>[ ] Категории URL + HTML-ссылки на товары  </li>
-<li>[ ] Alt, OG/Twitter, чистый SKU  </li>
-<li>[ ] CWV / урезание JS  </li>
-<li>[ ] Синхронизация атрибутов с WB/Ozon  </li>
-</ul>
-<h3 id="low">Low</h3>
-<ul>
-<li>[ ] manifest / PWA-мелкая полировка  </li>
-<li>[ ] Блог / lookbook  </li>
-<li>[ ] Reviews на сайте  </li>
-<li>[ ] On-site checkout / OpenAI Shopping feed (после стратегического «да»)  </li>
-</ul>
-<hr />
-<h2 id="_10">Предварительная смета внедрения (для КП)</h2>
+<h2>Пакеты внедрения</h2>
+<p>Аудит этой версии — <strong>бесплатно</strong> (команда lumenstudio.su).<br />
+Ниже — стоимость <strong>комплексной оптимизации и внедрения</strong> (фиксированные пакеты).</p>
 <table>
 <thead>
 <tr>
 <th>Пакет</th>
-<th>Состав</th>
-<th>Часы</th>
-<th>₽ (ориентир)</th>
+<th>Что входит</th>
+<th>Цена</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Пакет 0 — Must fix</strong></td>
-<td>Индексация, sitemap, www, цены в Store, meta</td>
-<td>8–16</td>
-<td><strong>15 000–30 000</strong></td>
+<td><strong>Старт</strong></td>
+<td>Индексация, цены, meta, sitemap, www, базовая проверка карточек</td>
+<td><strong>30 000 ₽</strong></td>
 </tr>
 <tr>
-<td><strong>Пакет 1 — AI-видимость</strong></td>
-<td>Описания 26 SKU, schema, Organization/FAQ, llms.txt</td>
-<td>25–45</td>
-<td><strong>45 000–90 000</strong></td>
+<td><strong>Видимость в AI</strong></td>
+<td>Всё из «Старт» + описания товаров, Schema.org, бренд-разметка, <code>llms.txt</code>, FAQ</td>
+<td><strong>60 000 ₽</strong></td>
 </tr>
 <tr>
-<td><strong>Пакет 2 — GEO рост</strong></td>
-<td>Категории, контент-хабы, CWV, перелинковка</td>
-<td>25–45</td>
-<td><strong>45 000–90 000</strong></td>
-</tr>
-<tr>
-<td><strong>Пакет 3 — Shopping</strong></td>
-<td>Checkout или feed + остатки + политики</td>
-<td>40–80+</td>
-<td><strong>80 000–160 000+</strong></td>
-</tr>
-<tr>
-<td><strong>Аудит (этот документ)</strong></td>
-<td>Внешний LLMO/GEO отчёт</td>
-<td>—</td>
-<td><strong>5 000</strong></td>
+<td><strong>Полный GEO</strong></td>
+<td>Всё из «Видимость» + категории/перелинковка, контент (размеры, материалы), ускорение страниц</td>
+<td><strong>90 000 ₽</strong></td>
 </tr>
 </tbody>
 </table>
-<p>Рекомендация клиенту с основными продажами на маркетплейсах:<br />
-<strong>начать с Пакета 0</strong>, параллельно починить цены/индексацию на MP; решение по Пакету 1 принимать после измерения индексации Search Console / появления страниц в выдаче.</p>
+<p>Отдельный трек «покупка с сайта / OpenAI Shopping» — только после решения о смене модели продаж; в пакеты выше не входит.</p>
+<p><strong>Рекомендация:</strong> при продажах через маркетплейсы начать с <strong>Старта (30 000 ₽)</strong>, параллельно настроить карточки на WB/Ozon. Пакет 60 000 ₽ — если хотите, чтобы бренд чаще попадал в ответы ChatGPT.</p>
 <hr />
-<h2 id="_11">Финальный вывод</h2>
-<p>Чтобы товары EBSH <strong>максимально корректно отображались и рекомендовались</strong> в ChatGPT, OpenAI Shopping и других AI-системах, нужно:</p>
+<h2>Итог</h2>
+<p>Чтобы товары EBSH корректно находились и рекомендовались в ChatGPT и других AI:</p>
 <ol>
-<li><strong>Снять технические запреты индексации</strong> (главная и товары) и склеить зеркала www.  </li>
-<li><strong>Сделать машиночитаемые правдивые данные товара:</strong> цена ≠ 0, наличие, SKU/GTIN, бренд, цвет, размер, материал, нормальное описание и изображения с alt.  </li>
-<li><strong>Отдать эти данные в JSON-LD</strong> (Product/Offer + Organization/WebSite/FAQ/Breadcrumb).  </li>
-<li><strong>Дать LLM карту сайта</strong> (<code>llms.txt</code>) и цитируемый экспертный контент (размеры, материалы, бренд).  </li>
-<li><strong>Честно выбрать commerce-модель:</strong>  </li>
-<li>витрина + MP → цель = цитирование бренда/товаров (Shopping на домене не приоритет);  </li>
-<li>продажа с сайта / feed → отдельный проект под OpenAI Shopping / Google Merchant.</li>
+<li>Снять запреты индексации.  </li>
+<li>Заполнить правдивые данные товара (цена, описание, бренд, размеры, материалы).  </li>
+<li>Отдать это поисковикам и ботам в понятной разметке + <code>llms.txt</code>.  </li>
+<li>Решить: сайт только витрина + маркетплейсы <strong>или</strong> ещё и своя покупка под Shopping.</li>
 </ol>
-<p>Пока пункты 1–2 не закрыты, расходы на «оптимизацию под ChatGPT» не окупятся: модели не увидят или не смогут доверять каталогу.</p>
+<p>Пока пункты 1–2 не сделаны, «оптимизация под ChatGPT» почти не окупится.</p>
 <hr />
-<h2 id="a">Приложение A. Метод аудита</h2>
-<ul>
-<li>HTTP/HTML съеём: главная, catalog, about, contacts, oplata, thanks, 26 URL из <code>sitemap-store.xml</code>.  </li>
-<li>Проверка robots/llms/ai/manifest, заголовков, canonical, meta robots.  </li>
-<li>Разбор microdata Product/Offer.  </li>
-<li>Замеры TTFB/размеров.  </li>
-<li>Сравнение с публичными сигналами конкурентов (в т.ч. <code>llms.txt</code> ЦУМ, Love Republic).  </li>
-<li>PageSpeed API: квота исчерпана на момент прогона — CWV оценены косвенно.</li>
-</ul>
-<p><strong>Ограничения внешнего аудита:</strong> нет GSC/Яндекс.Вебмастер, нет админки Tilda, нет выгрузок остатков MP. Для «платного углублённого» этапа нужна админка Tilda + доступы вебмастеров.</p>
-<h2 id="b-tilda">Приложение B. Быстрый чеклист для исполнителя в Tilda</h2>
-<ol>
-<li>Главная → настройки страницы → <strong>разрешить индексацию</strong>.  </li>
-<li>Товары «Ради мечты» → убрать noindex <strong>или</strong> 301 на <code>/catalog/tproduct/...</code>.  </li>
-<li>Store → у каждого товара цена, описание, характеристики.  </li>
-<li>Сайт → домен → редирект www.  </li>
-<li>Sitemap: переиздать, убрать thanks, добавить home.  </li>
-<li>HTML-блок JSON-LD + файл <code>/llms.txt</code> через Tilda «файл» / прокси.  </li>
-</ol>
-<hr />
-<p><em>Документ подготовлен как коммерческий внешний AI LLMO / GEO audit для передачи заказчику. Следующий шаг: согласование Пакета 0 и доступов для внедрения.</em></p>
+<p><em>Документ подготовлен бесплатно командой <a href="https://lumenstudio.su">lumenstudio.su</a> · внешний аудит без доступов в админку · 15.07.2026</em></p>
 </body>
 </html>
