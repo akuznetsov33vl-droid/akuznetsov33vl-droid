@@ -503,6 +503,206 @@
       letter-spacing: 0.08em;
       color: rgba(240, 248, 255, 0.85);
     }
+    /* Final art direction: generated product key visual + restrained editorial overlay */
+    .content { display: none; }
+
+    .premium-visual {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .premium-shade {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(3, 5, 9, 0.02) 0%, rgba(3, 5, 9, 0) 45%, rgba(3, 5, 9, 0.08) 67%, rgba(3, 5, 9, 0.82) 100%),
+        radial-gradient(ellipse 110% 45% at 50% 0%, rgba(2, 4, 8, 0.2), transparent 72%);
+    }
+
+    .premium-content {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      padding: 96px 78px 86px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .premium-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .premium-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .premium-brand img {
+      width: 48px;
+      height: 48px;
+      border-radius: 13px;
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.22);
+    }
+
+    .premium-brand span {
+      font-family: "Syne", sans-serif;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: #f6fbff;
+    }
+
+    .premium-kicker {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(122, 225, 255, 0.82);
+    }
+
+    .premium-hero {
+      margin-top: 60px;
+    }
+
+    .premium-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      padding: 10px 15px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 212, 255, 0.26);
+      background: rgba(5, 12, 22, 0.52);
+      backdrop-filter: blur(16px);
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(225, 244, 255, 0.86);
+    }
+
+    .premium-label::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #00d4ff;
+      box-shadow: 0 0 12px #00d4ff;
+    }
+
+    .premium-title {
+      margin-top: 24px;
+      max-width: 900px;
+      font-family: "Syne", sans-serif;
+      font-size: 70px;
+      font-weight: 800;
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      color: #f8fafc;
+      text-wrap: balance;
+    }
+
+    .premium-title span {
+      color: #66dcff;
+      text-shadow: 0 0 34px rgba(0, 190, 255, 0.2);
+    }
+
+    .premium-subtitle {
+      margin-top: 18px;
+      font-size: 27px;
+      font-weight: 500;
+      color: rgba(233, 242, 250, 0.64);
+    }
+
+    .premium-subtitle strong {
+      color: #f7fbff;
+      font-weight: 600;
+    }
+
+    .premium-footer {
+      margin-top: auto;
+    }
+
+    .premium-proof {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 24px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(226, 240, 250, 0.44);
+    }
+
+    .premium-proof i {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #00d4ff;
+      opacity: 0.72;
+    }
+
+    .premium-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 88px;
+      padding: 0 18px 0 30px;
+      border-radius: 999px;
+      border: 1px solid rgba(109, 222, 255, 0.52);
+      background: rgba(7, 14, 24, 0.78);
+      backdrop-filter: blur(22px);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 48px rgba(0, 196, 255, 0.16),
+        0 18px 50px rgba(0, 0, 0, 0.38);
+    }
+
+    .premium-cta-text {
+      font-family: "Syne", sans-serif;
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #f8fbfd;
+    }
+
+    .premium-cta-text span { color: #66dcff; }
+
+    .premium-arrow {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #f5f8fa;
+      box-shadow: 0 8px 24px rgba(0, 190, 255, 0.22);
+    }
+
+    .premium-arrow svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: #071018;
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .premium-url {
+      margin-top: 22px;
+      text-align: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 17px;
+      letter-spacing: 0.16em;
+      color: rgba(226, 240, 250, 0.42);
+    }
   </style>
 </head>
 <body>
@@ -647,6 +847,37 @@
       <div class="brand-row">
         <img src="./lumen-mark.svg" alt="" />
         <span>Lumen.studio</span>
+      </div>
+    </div>
+
+    <img class="premium-visual" src="file:///opt/cursor/artifacts/assets/lumen-premium-key-visual.png" alt="" />
+    <div class="premium-shade"></div>
+    <div class="premium-content">
+      <div class="premium-header">
+        <div class="premium-brand">
+          <img src="./lumen-mark.svg" alt="" />
+          <span>Lumen.studio</span>
+        </div>
+        <div class="premium-kicker">AI · Enterprise</div>
+      </div>
+
+      <div class="premium-hero">
+        <div class="premium-label">Омниканальный ИИ-контроль</div>
+        <h1 class="premium-title">ИИ разберёт <span>каждое обращение</span></h1>
+        <p class="premium-subtitle"><strong>100%</strong> звонков и чатов под контролем</p>
+      </div>
+
+      <div class="premium-footer">
+        <div class="premium-proof">
+          <span>Звонки</span><i></i><span>Чаты</span><i></i><span>CRM</span><i></i><span>RAG</span>
+        </div>
+        <div class="premium-cta">
+          <div class="premium-cta-text">Разберём <span>10 звонков</span> бесплатно</div>
+          <div class="premium-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+          </div>
+        </div>
+        <div class="premium-url">lumenstudio.su</div>
       </div>
     </div>
   </article>
