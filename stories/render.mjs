@@ -7,6 +7,7 @@ const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(ROOT, "output");
 
 const stories = [
+  { file: "story-one.html", out: "lumen-story-one.png" },
   { file: "story-01-hero.html", out: "lumen-story-01-hero.png" },
   { file: "story-02-services.html", out: "lumen-story-02-services.png" },
   { file: "story-03-cta.html", out: "lumen-story-03-cta.png" },
