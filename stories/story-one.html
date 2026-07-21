@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lumen — Story One</title>
+  <link rel="stylesheet" href="./shared.css" />
+  <style>
+    .story {
+      background:
+        radial-gradient(ellipse 100% 60% at 70% -5%, rgba(0, 212, 255, 0.22), transparent 50%),
+        radial-gradient(ellipse 80% 50% at -10% 55%, rgba(123, 97, 255, 0.16), transparent 55%),
+        radial-gradient(ellipse 70% 40% at 90% 90%, rgba(0, 212, 255, 0.1), transparent 50%),
+        linear-gradient(165deg, #10151d 0%, #0b0b0b 42%, #07090c 100%);
+    }
+
+    .content {
+      padding: 100px 72px 88px;
+      gap: 0;
+    }
+
+    .top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .live {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 212, 255, 0.35);
+      background: rgba(0, 212, 255, 0.08);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+
+    .live .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan);
+    }
+
+    .headline {
+      margin-top: 44px;
+      font-size: 82px;
+      max-width: 940px;
+      line-height: 0.96;
+    }
+
+    .headline .soft {
+      color: rgba(240, 246, 252, 0.94);
+    }
+
+    .lede {
+      margin-top: 24px;
+      max-width: 860px;
+      font-size: 27px;
+      line-height: 1.4;
+      color: var(--muted);
+    }
+
+    .stage {
+      position: relative;
+      margin-top: 40px;
+      height: 820px;
+    }
+
+    .glow-orb {
+      position: absolute;
+      right: -60px;
+      top: -10px;
+      width: 460px;
+      height: 460px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.9), rgba(0, 212, 255, 0.6) 26%, rgba(123, 97, 255, 0.28) 52%, transparent 72%);
+      filter: blur(2px);
+      opacity: 0.62;
+      pointer-events: none;
+    }
+
+    .ring {
+      position: absolute;
+      right: 8px;
+      top: 50px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 212, 255, 0.28);
+      box-shadow: inset 0 0 70px rgba(0, 212, 255, 0.1), 0 0 90px rgba(123, 97, 255, 0.16);
+      pointer-events: none;
+    }
+
+    .ring::after {
+      content: "";
+      position: absolute;
+      inset: 40px;
+      border-radius: 50%;
+      border: 1px dashed rgba(123, 97, 255, 0.4);
+    }
+
+    .panel-code {
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 540px;
+      padding: 28px 30px;
+      border-radius: 28px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 19px;
+      line-height: 1.55;
+      color: rgba(232, 250, 255, 0.8);
+      transform: rotate(-1.8deg);
+      z-index: 2;
+    }
+
+    .panel-code .k { color: #00d4ff; }
+    .panel-code .s { color: #b39cff; }
+    .panel-code .c { color: rgba(240, 246, 252, 0.32); }
+
+    .metric {
+      position: absolute;
+      left: 420px;
+      top: 210px;
+      z-index: 4;
+      padding: 18px 22px;
+      border-radius: 20px;
+      transform: rotate(3deg);
+      min-width: 200px;
+    }
+
+    .metric .v {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      font-size: 42px;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #00d4ff, #7b61ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1;
+    }
+
+    .metric .t {
+      margin-top: 6px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(232, 250, 255, 0.55);
+    }
+
+    .stack {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 2;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .chip-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 24px;
+      border-radius: 22px;
+      min-height: 92px;
+    }
+
+    .ico {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(0, 212, 255, 0.28);
+      background: linear-gradient(145deg, rgba(0, 212, 255, 0.18), rgba(123, 97, 255, 0.12));
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.12);
+    }
+
+    .ico svg {
+      width: 24px;
+      height: 24px;
+      stroke: #e8faff;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .chip-title {
+      font-family: "Syne", sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .chip-sub {
+      margin-top: 4px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(0, 212, 255, 0.7);
+    }
+
+    .flow-float {
+      position: absolute;
+      right: 0;
+      top: 120px;
+      width: 290px;
+      padding: 22px 24px;
+      border-radius: 24px;
+      transform: rotate(2.8deg);
+      z-index: 3;
+    }
+
+    .flow-float .label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 14px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 11px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .step:last-child { margin-bottom: 0; }
+
+    .n {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan);
+    }
+
+    .n.p { background: var(--purple); box-shadow: 0 0 10px var(--purple); }
+
+    .cta-block {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 22px;
+      padding-top: 28px;
+    }
+
+    .cta {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      border-radius: 999px;
+      border: none;
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      font-size: 38px;
+      letter-spacing: -0.02em;
+      color: #0a0e16;
+      background: linear-gradient(120deg, #00d4ff 0%, #4fc3ff 38%, #7b61ff 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.45),
+        0 16px 50px rgba(0, 212, 255, 0.32),
+        0 0 70px rgba(123, 97, 255, 0.22);
+    }
+
+    .cta::after {
+      content: "";
+      position: absolute;
+      left: 16%;
+      right: 16%;
+      top: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+    }
+
+    .meta-left {
+      font-size: 24px;
+      color: rgba(240, 246, 252, 0.72);
+      font-weight: 500;
+    }
+
+    .meta-url {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 22px;
+      letter-spacing: 0.08em;
+      color: rgba(232, 250, 255, 0.55);
+    }
+  </style>
+</head>
+<body>
+  <article class="story">
+    <div class="noise"></div>
+    <svg width="1080" height="1920" style="position:absolute;inset:0;z-index:1;opacity:0.4" aria-hidden="true">
+      <defs>
+        <linearGradient id="e" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#7B61FF" stop-opacity="0.2"/>
+        </linearGradient>
+      </defs>
+      <path d="M60 420 C220 360, 340 520, 520 450 S820 360, 1040 430" stroke="url(#e)" stroke-width="1.4" fill="none"/>
+      <path d="M40 980 C260 900, 420 1100, 640 1020 S900 920, 1060 1000" stroke="url(#e)" stroke-width="1.2" fill="none"/>
+      <circle cx="520" cy="450" r="4" fill="#00D4FF"/>
+      <circle cx="640" cy="1020" r="4" fill="#7B61FF"/>
+      <circle cx="220" cy="360" r="3" fill="#00D4FF" opacity="0.7"/>
+      <circle cx="900" cy="920" r="3.5" fill="#00D4FF" opacity="0.65"/>
+    </svg>
+
+    <div class="content">
+      <div class="top-row">
+        <div class="brand">
+          <img class="brand-mark" src="./lumen-mark.svg" alt="" />
+          <div class="brand-name">Lumen.studio</div>
+        </div>
+        <div class="live"><span class="dot"></span>AI-first</div>
+      </div>
+
+      <h1 class="headline">
+        <span class="soft">Не сайт.</span><br />
+        <span class="accent">AI-продукт</span><br />
+        <span class="soft">под ваш бизнес.</span>
+      </h1>
+
+      <p class="lede">Агенты · Mini Apps · RAG · автоматизация — от идеи до запуска.</p>
+
+      <div class="stage">
+        <div class="glow-orb"></div>
+        <div class="ring"></div>
+
+        <div class="panel-code glass">
+          <div><span class="c">// lumen pipeline</span></div>
+          <div><span class="k">build</span>({</div>
+          <div>&nbsp;&nbsp;idea → <span class="s">architecture</span>,</div>
+          <div>&nbsp;&nbsp;agents → <span class="s">YandexGPT</span>,</div>
+          <div>&nbsp;&nbsp;memory → <span class="s">RAG</span>,</div>
+          <div>&nbsp;&nbsp;roi → <span class="s">measurable</span></div>
+          <div>})</div>
+        </div>
+
+        <div class="metric glass">
+          <div class="v">ROI</div>
+          <div class="t">сначала считаем</div>
+        </div>
+
+        <div class="flow-float glass">
+          <div class="label">Как работаем</div>
+          <div class="step"><span class="n"></span>Диагностика</div>
+          <div class="step"><span class="n p"></span>Разработка</div>
+          <div class="step"><span class="n"></span>Внедрение</div>
+        </div>
+
+        <div class="stack">
+          <div class="row">
+            <div class="chip-card glass">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 19c1.8-3.2 4-4.8 7-4.8S17.2 15.8 19 19"/></svg>
+              </div>
+              <div>
+                <div class="chip-title">AI-агенты</div>
+                <div class="chip-sub">CRM · 1С · чаты</div>
+              </div>
+            </div>
+            <div class="chip-card glass">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="7" y="2.8" width="10" height="18.4" rx="2.4"/><path d="M10 5.2h4"/><circle cx="12" cy="17.8" r="0.9" fill="#e8faff" stroke="none"/></svg>
+              </div>
+              <div>
+                <div class="chip-title">Mini Apps</div>
+                <div class="chip-sub">Telegram · MAX</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="chip-card glass">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3.5v4.2"/><path d="M12 16.3V20.5"/><circle cx="12" cy="12" r="3.1"/></svg>
+              </div>
+              <div>
+                <div class="chip-title">RAG</div>
+                <div class="chip-sub">Знания компании</div>
+              </div>
+            </div>
+            <div class="chip-card glass">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="12" rx="2.2"/><path d="M8 20h8"/><path d="M12 16.5V20"/></svg>
+              </div>
+              <div>
+                <div class="chip-title">Web Apps</div>
+                <div class="chip-sub">Next.js · 95+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-block">
+        <div class="cta">Начать проект →</div>
+        <div class="meta">
+          <div class="meta-left">От идеи до запуска</div>
+          <div class="meta-url">lumenstudio.su</div>
+        </div>
+      </div>
+    </div>
+  </article>
+</body>
+</html>
