@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lumen — Story 1 Hero</title>
+  <link rel="stylesheet" href="./shared.css" />
+  <style>
+    .hero-top {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      margin-top: 36px;
+    }
+
+    .headline {
+      font-size: 78px;
+      max-width: 900px;
+      margin-top: 72px;
+    }
+
+    .headline .line2 {
+      display: block;
+      margin-top: 8px;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 40px;
+      max-width: 860px;
+    }
+
+    .pill {
+      padding: 16px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(13, 17, 23, 0.65);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: rgba(240, 246, 252, 0.82);
+    }
+
+    .visual {
+      position: relative;
+      margin-top: 72px;
+      height: 620px;
+      border-radius: 36px;
+      overflow: hidden;
+    }
+
+    .visual .panel {
+      position: absolute;
+      inset: 0;
+      border-radius: 36px;
+    }
+
+    .code-snip {
+      position: absolute;
+      left: 48px;
+      top: 56px;
+      width: 520px;
+      padding: 28px 30px;
+      border-radius: 22px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      line-height: 1.55;
+      color: rgba(232, 250, 255, 0.78);
+    }
+
+    .code-snip .k { color: #00d4ff; }
+    .code-snip .s { color: #7b61ff; }
+    .code-snip .c { color: rgba(240, 246, 252, 0.35); }
+
+    .flow {
+      position: absolute;
+      right: 40px;
+      bottom: 48px;
+      width: 380px;
+      padding: 26px;
+      border-radius: 22px;
+    }
+
+    .flow-title {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 18px;
+    }
+
+    .flow-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 22px;
+      font-weight: 500;
+      color: rgba(240, 246, 252, 0.9);
+    }
+
+    .flow-row:last-child { margin-bottom: 0; }
+
+    .node {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan);
+      flex-shrink: 0;
+    }
+
+    .node.p { background: var(--purple); box-shadow: 0 0 12px var(--purple); }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      pointer-events: none;
+    }
+    .orb-a {
+      width: 220px; height: 220px; right: 60px; top: 40px;
+      background: radial-gradient(circle at 35% 35%, #fff, #00d4ff 35%, transparent 70%);
+      opacity: 0.35;
+    }
+    .orb-b {
+      width: 160px; height: 160px; left: 420px; bottom: 80px;
+      background: radial-gradient(circle at 35% 35%, #fff, #7b61ff 40%, transparent 72%);
+      opacity: 0.28;
+    }
+
+    .cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      padding-bottom: 20px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 420px;
+      height: 72px;
+      padding: 0 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(13, 17, 23, 0.7);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: #e8faff;
+      box-shadow:
+        0 0 40px rgba(0, 212, 255, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <article class="story">
+    <div class="noise"></div>
+    <svg class="network" width="1080" height="1920" style="position:absolute;inset:0;z-index:1;opacity:0.55" aria-hidden="true">
+      <defs>
+        <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#7B61FF" stop-opacity="0.25"/>
+        </linearGradient>
+      </defs>
+      <g stroke="url(#edge)" stroke-width="1.2" fill="none">
+        <path d="M120 520 C260 480, 340 620, 480 560 S760 480, 900 540"/>
+        <path d="M180 780 C320 740, 400 860, 560 800 S820 720, 960 790"/>
+        <path d="M90 1100 C250 1040, 380 1180, 540 1120 S800 1040, 980 1110"/>
+        <path d="M220 1400 C360 1340, 480 1480, 640 1410 S860 1320, 990 1390"/>
+      </g>
+      <g fill="#00D4FF">
+        <circle cx="120" cy="520" r="3.5" opacity="0.9"/>
+        <circle cx="480" cy="560" r="4" opacity="0.85"/>
+        <circle cx="900" cy="540" r="3" opacity="0.7"/>
+        <circle cx="560" cy="800" r="4.5" opacity="0.9"/>
+        <circle cx="540" cy="1120" r="3.5" opacity="0.8"/>
+        <circle cx="640" cy="1410" r="4" opacity="0.75"/>
+      </g>
+      <g fill="#7B61FF">
+        <circle cx="320" cy="740" r="3" opacity="0.7"/>
+        <circle cx="820" cy="720" r="3.5" opacity="0.65"/>
+        <circle cx="380" cy="1180" r="3" opacity="0.6"/>
+        <circle cx="860" cy="1320" r="3.5" opacity="0.7"/>
+      </g>
+    </svg>
+
+    <div class="content">
+      <div class="safe-top"></div>
+      <div class="brand">
+        <img class="brand-mark" src="./lumen-mark.svg" alt="" />
+        <div class="brand-name">Lumen.studio</div>
+      </div>
+
+      <div class="hero-top">
+        <div class="eyebrow"><span class="dot"></span>AI · ENTERPRISE</div>
+        <h1 class="headline">
+          Создаем<br />
+          <span class="accent">AI-продукты,</span>
+          <span class="line2">а не просто сайты.</span>
+        </h1>
+        <div class="pills">
+          <span class="pill">AI-агенты</span>
+          <span class="pill">Telegram Mini Apps</span>
+          <span class="pill">RAG</span>
+          <span class="pill">Web Apps</span>
+        </div>
+      </div>
+
+      <div class="visual glass">
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
+        <div class="code-snip glass">
+          <div><span class="c">// архитектура агента</span></div>
+          <div><span class="k">agent</span>.orchestrate({</div>
+          <div>&nbsp;&nbsp;model: <span class="s">"YandexGPT"</span>,</div>
+          <div>&nbsp;&nbsp;memory: <span class="s">"RAG"</span>,</div>
+          <div>&nbsp;&nbsp;tools: [<span class="s">"CRM"</span>, <span class="s">"1C"</span>]</div>
+          <div>})</div>
+        </div>
+        <div class="flow glass">
+          <div class="flow-title">AI Flow</div>
+          <div class="flow-row"><span class="node"></span>Диагностика</div>
+          <div class="flow-row"><span class="node p"></span>Архитектура</div>
+          <div class="flow-row"><span class="node"></span>Внедрение</div>
+        </div>
+      </div>
+
+      <div class="safe-bottom cta-wrap">
+        <div class="cta">lumenstudio.su</div>
+      </div>
+    </div>
+  </article>
+</body>
+</html>
