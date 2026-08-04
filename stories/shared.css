@@ -1,0 +1,205 @@
+@font-face {
+  font-family: "Syne";
+  font-weight: 600;
+  src: url("./fonts/syne-600.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Syne";
+  font-weight: 700;
+  src: url("./fonts/syne-700.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Syne";
+  font-weight: 800;
+  src: url("./fonts/syne-800.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  src: url("./fonts/inter-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 500;
+  src: url("./fonts/inter-500.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 600;
+  src: url("./fonts/inter-600.ttf") format("truetype");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 500;
+  src: url("./fonts/mono-500.ttf") format("truetype");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 600;
+  src: url("./fonts/mono-600.ttf") format("truetype");
+}
+
+:root {
+  --bg: #0b0b0b;
+  --bg-deep: #0a0e14;
+  --surface: rgba(22, 27, 34, 0.72);
+  --surface-solid: #161b22;
+  --cyan: #00d4ff;
+  --purple: #7b61ff;
+  --text: #f0f6fc;
+  --muted: rgba(240, 246, 252, 0.58);
+  --line: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.story {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 8%, rgba(0, 212, 255, 0.14), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 82% 78%, rgba(123, 97, 255, 0.12), transparent 60%),
+    radial-gradient(ellipse 55% 40% at 12% 72%, rgba(0, 212, 255, 0.07), transparent 55%),
+    linear-gradient(180deg, #0d1117 0%, #0b0b0b 48%, #07090c 100%);
+}
+
+.story::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 85% 70% at 50% 40%, #000 20%, transparent 85%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 120px 88px 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.brand-mark {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: 0.08em;
+  color: #e8faff;
+  text-shadow: 0 0 24px rgba(0, 212, 255, 0.25);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  background: rgba(0, 212, 255, 0.08);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  width: fit-content;
+}
+
+.eyebrow .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 14px var(--cyan);
+}
+
+.headline {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  color: var(--text);
+}
+
+.accent {
+  background: linear-gradient(135deg, #00d4ff 0%, #7b61ff 55%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sub {
+  font-size: 28px;
+  line-height: 1.45;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.glass {
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(24px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.footer-url {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(232, 250, 255, 0.72);
+}
+
+.safe-top {
+  height: 48px;
+}
+.safe-bottom {
+  margin-top: auto;
+}

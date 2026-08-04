@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lumen — Story 2 Services</title>
+  <link rel="stylesheet" href="./shared.css" />
+  <style>
+    .top {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .headline {
+      font-size: 72px;
+      margin-top: 8px;
+    }
+
+    .cards {
+      margin-top: 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 34px 36px;
+      border-radius: 28px;
+      min-height: 132px;
+    }
+
+    .icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(0, 212, 255, 0.28);
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.35), transparent 45%),
+        linear-gradient(145deg, rgba(0, 212, 255, 0.18), rgba(123, 97, 255, 0.12));
+      box-shadow: 0 0 28px rgba(0, 212, 255, 0.15);
+    }
+
+    .icon svg {
+      width: 34px;
+      height: 34px;
+      stroke: #e8faff;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .card-text {
+      font-family: "Syne", sans-serif;
+      font-weight: 700;
+      font-size: 34px;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.15;
+    }
+
+    .card-meta {
+      margin-top: 8px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 16px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(0, 212, 255, 0.75);
+    }
+
+    .footer-line {
+      text-align: center;
+      font-family: "Syne", sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      letter-spacing: -0.02em;
+      color: rgba(240, 246, 252, 0.88);
+    }
+
+    .footer-sub {
+      margin-top: 14px;
+      text-align: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 20px;
+      letter-spacing: 0.1em;
+      color: rgba(232, 250, 255, 0.45);
+    }
+  </style>
+</head>
+<body>
+  <article class="story">
+    <div class="noise"></div>
+    <div class="content">
+      <div class="safe-top"></div>
+      <div class="brand">
+        <img class="brand-mark" src="./lumen-mark.svg" alt="" />
+        <div class="brand-name">Lumen.studio</div>
+      </div>
+
+      <div class="top">
+        <div class="eyebrow"><span class="dot"></span>ЧТО МЫ СОЗДАЕМ</div>
+        <h1 class="headline">Что мы<br /><span class="accent">создаем</span></h1>
+      </div>
+
+      <div class="cards">
+        <div class="card glass">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path d="M5 19c1.8-3.2 4-4.8 7-4.8S17.2 15.8 19 19"/><path d="M16.5 7.2c1.2.4 2.1 1.5 2.1 2.8"/><path d="M7.5 7.2C6.3 7.6 5.4 8.7 5.4 10"/></svg>
+          </div>
+          <div>
+            <div class="card-text">AI-агенты</div>
+            <div class="card-meta">Команды агентов · CRM · RAG</div>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="12" rx="2.2"/><path d="M8 20h8"/><path d="M12 16.5V20"/></svg>
+          </div>
+          <div>
+            <div class="card-text">Сайты и веб-приложения</div>
+            <div class="card-meta">Next.js · PageSpeed 95+</div>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="7" y="2.8" width="10" height="18.4" rx="2.4"/><path d="M10 5.2h4"/><circle cx="12" cy="17.8" r="0.9" fill="#e8faff" stroke="none"/></svg>
+          </div>
+          <div>
+            <div class="card-text">Telegram Mini Apps</div>
+            <div class="card-meta">Боты · Mini Apps · MAX</div>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3.5v4.2"/><path d="M12 16.3V20.5"/><path d="M4.8 8.2 8.4 10.3"/><path d="M15.6 13.7l3.6 2.1"/><path d="M4.8 15.8l3.6-2.1"/><path d="M15.6 10.3l3.6-2.1"/><circle cx="12" cy="12" r="3.1"/></svg>
+          </div>
+          <div>
+            <div class="card-text">RAG-системы</div>
+            <div class="card-meta">Знания компании · без галлюцинаций</div>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.4"/><path d="M12 18.8v2.4"/><path d="M2.8 12h2.4"/><path d="M18.8 12h2.4"/><path d="M5.4 5.4l1.7 1.7"/><path d="M16.9 16.9l1.7 1.7"/><path d="M5.4 18.6l1.7-1.7"/><path d="M16.9 7.1l1.7-1.7"/></svg>
+          </div>
+          <div>
+            <div class="card-text">Автоматизация бизнеса</div>
+            <div class="card-meta">Процессы · ROI · под ключ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="safe-bottom" style="padding-bottom: 28px;">
+        <div class="footer-line">От идеи до запуска.</div>
+        <div class="footer-sub">lumenstudio.su</div>
+      </div>
+    </div>
+  </article>
+</body>
+</html>

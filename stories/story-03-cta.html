@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lumen — Story 3 CTA</title>
+  <link rel="stylesheet" href="./shared.css" />
+  <style>
+    .center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 36px;
+      padding: 0 20px;
+      margin-top: -40px;
+    }
+
+    .headline {
+      font-size: 96px;
+      letter-spacing: -0.04em;
+    }
+
+    .body {
+      max-width: 780px;
+      font-size: 34px;
+      line-height: 1.45;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .body strong {
+      color: rgba(240, 246, 252, 0.92);
+      font-weight: 500;
+    }
+
+    .glow-btn {
+      position: relative;
+      margin-top: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 520px;
+      height: 108px;
+      padding: 0 56px;
+      border-radius: 999px;
+      border: none;
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      font-size: 40px;
+      letter-spacing: -0.02em;
+      color: #0a0e16;
+      background: linear-gradient(135deg, #00d4ff 0%, #5ec8ff 40%, #7b61ff 100%);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+        0 18px 60px rgba(0, 212, 255, 0.35),
+        0 0 80px rgba(123, 97, 255, 0.28);
+    }
+
+    .glow-btn::before {
+      content: "";
+      position: absolute;
+      inset: -18px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.35), transparent 70%);
+      z-index: -1;
+      filter: blur(8px);
+    }
+
+    .glow-btn::after {
+      content: "";
+      position: absolute;
+      left: 18%;
+      right: 18%;
+      top: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+      opacity: 0.8;
+    }
+
+    .chips {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 28px;
+    }
+
+    .chip {
+      padding: 14px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(13, 17, 23, 0.55);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      color: rgba(232, 250, 255, 0.7);
+    }
+
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 24px;
+    }
+
+    .diagram {
+      position: absolute;
+      left: 50%;
+      top: 52%;
+      transform: translate(-50%, -50%);
+      width: 920px;
+      height: 920px;
+      opacity: 0.22;
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <article class="story">
+    <div class="noise"></div>
+    <svg class="diagram" viewBox="0 0 920 920" aria-hidden="true">
+      <defs>
+        <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#00D4FF"/>
+          <stop offset="100%" stop-color="#7B61FF"/>
+        </linearGradient>
+      </defs>
+      <circle cx="460" cy="460" r="280" fill="none" stroke="url(#ring)" stroke-width="1.2" opacity="0.7"/>
+      <circle cx="460" cy="460" r="360" fill="none" stroke="url(#ring)" stroke-width="1" opacity="0.35" stroke-dasharray="6 10"/>
+      <circle cx="460" cy="180" r="6" fill="#00D4FF"/>
+      <circle cx="720" cy="460" r="6" fill="#7B61FF"/>
+      <circle cx="460" cy="740" r="6" fill="#00D4FF"/>
+      <circle cx="200" cy="460" r="6" fill="#7B61FF"/>
+      <path d="M460 180 L720 460 L460 740 L200 460 Z" fill="none" stroke="url(#ring)" stroke-width="1" opacity="0.45"/>
+    </svg>
+
+    <div class="content">
+      <div class="safe-top"></div>
+      <div class="brand" style="justify-content: center;">
+        <img class="brand-mark" src="./lumen-mark.svg" alt="" />
+        <div class="brand-name">Lumen.studio</div>
+      </div>
+
+      <div class="center">
+        <div class="eyebrow"><span class="dot"></span>СТАРТ ПРОЕКТА</div>
+        <h1 class="headline">Есть <span class="accent">идея?</span></h1>
+        <p class="body">
+          Спроектируем архитектуру,<br />
+          разработаем продукт,<br />
+          внедрим искусственный интеллект<br />
+          <strong>в ваш бизнес.</strong>
+        </p>
+
+        <div class="glow-btn">Начать проект</div>
+
+        <div class="chips">
+          <span class="chip">Telegram</span>
+          <span class="chip">MAX</span>
+          <span class="chip">Бесплатное демо</span>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="footer-url">lumenstudio.su</div>
+      </div>
+    </div>
+  </article>
+</body>
+</html>
